@@ -1,0 +1,79 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* styles.css */
+.unauthorized-container {
+  text-align: center;
+  margin: 50px;
+}
+
+.admin-dashboard {
+  text-align: center;
+  margin: 20px;
+}
+
+.dashboard-links {
+  margin-top: 20px;
+}
+
+
+/* login style  */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 200px;
+}
+
+button {
+  padding: 10px;
+  width: 220px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+
+/* signup page */
+.signup-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 200px;
+}
+
+button {
+  padding: 10px;
+  width: 220px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
