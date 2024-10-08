@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../features/auth/authSlice'; // Logout action from the auth slice
 import SearchComp from '../HomeTest/Search';
 import Cart from '../HomeTest/Cart';
+import "./nav.css";
 
 const Header = ({ featureRef, scrollToSection, categoryRef, reviewRef, homeRef }) => {
   const [activeComponent, setActiveComponent] = useState('');
@@ -27,7 +28,7 @@ const Header = ({ featureRef, scrollToSection, categoryRef, reviewRef, homeRef }
     <>
       <header className="header fixed top-0 z-50 w-full flex justify-between items-center p-4 shadow-lg bg-white">
         
-        <div className='text-[14px] flex items-center justify-center gap-3'>
+        <div onClick={()=>{ navigate('/');  scrollToSection(homeRef)}} className='cursor-pointer text-[14px] flex items-center justify-center gap-3'>
           <i className="fa-solid fa-cart-plus text-[20px] text-green-600"></i>
           <div>
             <div className='text-yellow-600 font-bold'>NATURALLY</div>
@@ -39,12 +40,12 @@ const Header = ({ featureRef, scrollToSection, categoryRef, reviewRef, homeRef }
         <nav
           className={`navbar ${activeComponent === 'menu' ? 'block active z-20' : 'hidden'} md:flex md:space-x-6 absolute md:static w-full bg-white md:w-auto p-4 md:p-0`}
         >
-          <Link className="link block p-4 md:p-0" to="/" onClick={() => scrollToSection(homeRef)}>Home</Link>
-          <Link className="link block p-4 md:p-0" to="#features" onClick={() => scrollToSection(featureRef)}>Features</Link>
-          <Link className="link block p-4 md:p-0" to="/products">Products</Link>
-          <Link className="link block p-4 md:p-0" to="#categories" onClick={() => scrollToSection(categoryRef)}>Categories</Link>
-          <Link className="link block p-4 md:p-0" to="#review" onClick={() => scrollToSection(reviewRef)}>Review</Link>
-          <Link className="link block p-4 md:p-0" to="/orders">Orders</Link>
+          <Link className="link block p-4 md:p-0 nav" to="/" onClick={() => scrollToSection(homeRef)}>Home</Link>
+          <Link className="link block p-4 md:p-0 nav" to="#features" onClick={() => scrollToSection(featureRef)}>Features</Link>
+          <Link className="link block p-4 md:p-0 nav" to="/products">Products</Link>
+          <Link className="link block p-4 md:p-0 nav" to="#categories" onClick={() => scrollToSection(categoryRef)}>Categories</Link>
+          <Link className="link block p-4 md:p-0 nav" to="#review" onClick={() => scrollToSection(reviewRef)}>Review</Link>
+          <Link className="link block p-4 md:p-0 nav" to="/orders">Orders</Link>
         </nav>
 
         {/* Icons for Search, Cart, Login/Profile */}

@@ -3,13 +3,15 @@
 
 
 export const categories = [
-      "Fruits & Vegetables",
+      "Fruits",
+      "Vegetables",
+      "Fish",
+      "Meat",
+      "Grains",
       "Dairy & Eggs",
-      "Meat & Seafood",
       "Bakery & Bread",
       "Pantry Staples",
       "Snacks & Sweets",
-      "Beverages",
       "Frozen Foods",
       "Health & Wellness",
       "Household Supplies",

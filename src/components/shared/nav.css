@@ -1,0 +1,5 @@
+.nav:hover{
+    text-shadow: 0 0 5px rgb(19, 185, 55),
+        0 0 10px rgb(19, 185, 55),
+        0 0 50px rgb(19, 185, 55);
+}

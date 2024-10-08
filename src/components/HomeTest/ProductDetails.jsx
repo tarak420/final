@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductById } from '../../features/product/productSlice';
 import { useParams } from 'react-router-dom';
 import Header from '../shared/Header';
+import { addProductToCart } from '../../features/cart/cartSlice';
+import { addNotification } from '../../features/notifications/notificationSlice';
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -11,6 +13,31 @@ const ProductDetails = () => {
 
   const selectedProduct = useSelector((state) => state.products.selectedProduct);
   const { status, error } = useSelector((state) => state.products);
+
+
+  // Handle adding product to cart
+  const handleAddToCart = () => {
+    const item = {
+      productId: selectedProduct._id,
+      name: selectedProduct.name,
+      price: selectedProduct.price,
+      quantity: 1,
+      image: selectedProduct.productImage,
+    };
+
+    // Dispatch action to add product to cart
+    dispatch(addProductToCart(item));
+
+    // Dispatch notification for success
+    dispatch(
+      addNotification({
+        id: Date.now(),
+        message: `${selectedProduct.name} added to the cart!`,
+        type: 'success',
+      })
+    );
+  };
+
 
   useEffect(() => {
     dispatch(fetchProductById(productId));
@@ -59,7 +86,7 @@ const ProductDetails = () => {
             </div>
 
             {/* Add to Cart Button */}
-            <button className="w-full md:w-auto bg-blue-500 hover:bg-blue-600 text-white text-lg font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out shadow-lg">
+            <button onClick={handleAddToCart} className="w-full md:w-auto bg-blue-500 hover:bg-blue-600 text-white text-lg font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out shadow-lg">
             Buy Now
             </button>
           </div>

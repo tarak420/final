@@ -38,7 +38,7 @@ const Cart = ({ isOpen, toggleCart }) => {
   if (!isOpen) return null; // Don't render the cart if it's closed
 
   return (
-    <div className="w-[30vw]  fixed top-0 right-0 w-full h-full  flex justify-end z-50">
+    <div className="w-[30vw]  fixed top-0 right-0 h-full  flex justify-end z-50">
       <div className="cart bg-white p-4 pt-24 w-[50vw] shadow-xl h-full overflow-y-auto relative">
         <h2 className="text-xl font-semibold mb-4">Your Cart</h2>
 
@@ -65,7 +65,7 @@ const Cart = ({ isOpen, toggleCart }) => {
                     <div className="flex items-center">
                       <button onClick={() => handleQuantityChange(item.productId, item.quantity - 1)} className="text-[20px]">-</button>
                       <span className="mx-2">{item.quantity}</span>
-                      <button onClick={() => handleQuantityChange(item.productId, item.quantity + 1)} className="text-[20px]">+</button>
+                      <button onClick={() => handleQuantityChange(item.productId, item.quantity + 1)} className="text-[20px] bg-green-600">+</button>
                     </div>
                     <p className="text-gray-800 font-semibold text-[14px]">
                       ${item.price * item.quantity}

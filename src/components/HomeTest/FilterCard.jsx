@@ -3,9 +3,9 @@ import { categories } from './constant/category'; // Assuming you have categorie
 
 const FilterCard = ({ selectedCategory, onSelectCategory }) => {
   return (
-    <div className="filter-card p-4 border rounded-lg shadow-lg mr-6">
+    <div className="filter-card z-[200] bg-white fixed left-0 top-[10em] p-4 border rounded-lg shadow-lg mr-6">
       <h2 className="font-bold mb-4 text-[18px] text-gray-800 ">Filter by Category</h2>
-      <ul className="space-y-2">
+      <ul className="space-y-2 overflow-y-auto max-h-[75vh] px-4">
         {categories.map((category, idx) => (
           <li key={idx}>
             <button

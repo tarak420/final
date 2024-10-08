@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../features/auth/authSlice';
 
+
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

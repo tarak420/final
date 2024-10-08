@@ -3,13 +3,21 @@ import { getToken } from '../../utils/getToken';
 import { BASE_URL } from '../../utils/constants';
 
 
-export const fetchProductsApi = async () => {
+
+// Fetch products with search, category filter, and pagination
+export const fetchProductsApi = async ({ search = '', category = '', page = 1, limit }) => {
   const response = await axios.get(`${BASE_URL}/products`, {
+    params: {
+      search,
+      category,
+      page,
+      limit, // Assuming backend supports pagination
+    },
     headers: {
       Authorization: `Bearer ${getToken()}`, // Include the token in the header
     },
   });
-  return response?.data; // Return the data directly
+  return response.data; // Return the products, assuming the backend returns the data in this format
 };
 
 // productApi.js
