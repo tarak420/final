@@ -4,6 +4,7 @@ import { createOrder } from '../../features/orders/ordersSlice';
 import { clearCart } from '../../features/cart/cartSlice'; // Clear the cart after successful order
 import { unwrapResult } from '@reduxjs/toolkit';
 import Header from '../shared/Header';
+import { addNotification } from '../../features/notifications/notificationSlice';
 
 const MakeOrder = () => {
   const dispatch = useDispatch();
@@ -33,17 +34,29 @@ const MakeOrder = () => {
       const resultAction = await dispatch(createOrder(orderData));
       unwrapResult(resultAction); // Unwrap to handle any errors properly
 
-      alert('Order placed successfully!');
+      dispatch(
+        addNotification({
+          id: Date.now(),
+          message: ` Order Placed Sucessfully`,
+          type: 'failed',
+        })
+      );
       dispatch(clearCart()); // Clear the cart
     } catch (err) {
-      alert('Failed to place order. Please try again.');
+      dispatch(
+        addNotification({
+          id: Date.now(),
+          message: ` Order failed ! Please Login first`,
+          type: 'failed',
+        })
+      );
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 pt-[20em]">
       <Header />
-      <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-[13em]">
+      <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg ">
         <h1 className="text-2xl font-bold text-center mb-6">Review Your Order</h1>
 
         <div className="cart-items mb-6">
